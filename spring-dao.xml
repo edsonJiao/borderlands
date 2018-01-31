@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--标签扫描-->
+    <context:annotation-config/>
+    <context:component-scan base-package="club.borderlands"/>
+    <!--加载db.properties-->
+    <context:property-placeholder location="db.properties"/>
+    <!--加载数据源-->
+    <bean id="dataSource" class="${databaseSource}" destroy-method="close">
+        <property name="driverClassName" value="${driverClassName}"/>
+        <property name="username" value="${jdbc.admin}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="maxIdle" value="5"/>
+        <property name="maxActive" value="10"/>
+    </bean>
+    <!--配置sqlSessionFactory用来产生sqlSession-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--加载mybatis的全局配置文件-->
+        <property name="configLocation" value="sqlMapConfig.xml"/>
+        <!--加载数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--配置mapper扫描器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="club.borderlands.dao"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+</beans>

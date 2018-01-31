@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!--开启延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--将积极加载修改为消极加载-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!--开启二级缓存-->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+    <!--别名定义-->
+    <typeAliases>
+        <package name="club.borderlands.controller"/>
+        <package name="club.borderlands.servlet"/>
+        <package name="club.borderlands.filter"/>
+        <package name="club.borderlands.dao"/>
+        <package name="club.borderlands.pojo"/>
+        <package name="club.borderlands.service"/>
+    </typeAliases>
+    <!--mapper文件-->
+    <mappers>
+        <package name="club.borderlands.dao"/>
+    </mappers>
+</configuration>
