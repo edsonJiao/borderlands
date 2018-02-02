@@ -1,13 +1,13 @@
 create database borderlands;
 use borderlands;
 create table address(
-	id int primary key,
+	id int primary key auto_increment,
     school_name varchar(50),
     school_part varchar(50)
 );
 show tables;
 create table admin(
-	id int primary key,
+	id int primary key  auto_increment,
     admin varchar(50) not null,
     password varchar(50) not null,
     name varchar(50) not null,
@@ -16,21 +16,28 @@ create table admin(
 );
 show tables;
 create table message(
-	id int primary key,
+    id int primary key  auto_increment,
     date date,
     content varchar(200),
     admin_id int,
     foreign key(admin_id) references admin(id)
 );
 create table root(
-	id int primary key,
+	id int primary key  auto_increment,
     admin varchar(50),
     password varchar(50)
 );
 show tables;
 create table picture(
-	id int primary key,
+	id int primary key  auto_increment,
     picture mediumblob,
     message_id int,
     foreign key(message_id) references message(id)
 );
+alter database borderlands charset utf8;
+alter table admin CONVERT TO CHARACTER SET utf8;
+alter table address CONVERT TO CHARACTER SET utf8;
+alter table picture CONVERT TO CHARACTER SET utf8;
+alter table root CONVERT TO CHARACTER SET utf8;
+alter table message CONVERT TO CHARACTER SET utf8;
+insert into address(school_name,school_part) values('青岛大学','崂山校区');

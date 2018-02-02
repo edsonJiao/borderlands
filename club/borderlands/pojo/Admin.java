@@ -1,5 +1,7 @@
 package club.borderlands.pojo;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import java.util.List;
 //用户类对应admin表
 //该类与Address类为多对一的关系
@@ -11,6 +13,7 @@ import java.util.List;
  * addressId 地址id
  * messageList 历史消息列表
  */
+@Qualifier("admin")
 public class Admin {
     private int adminId;
     private String admin;

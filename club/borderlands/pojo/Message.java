@@ -1,5 +1,7 @@
 package club.borderlands.pojo;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
 import java.util.Date;
 import java.util.List;
 //信息类对应message表
@@ -12,6 +14,7 @@ import java.util.List;
  * content 消息文本内容
  * pictureList 消息图片列表
  */
+@Qualifier("message")
 public class Message {
     private int id;
     private int adminId;

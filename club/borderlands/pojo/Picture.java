@@ -1,5 +1,9 @@
 package club.borderlands.pojo;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+
 //图片类 对应数据库中的picture表
+@Qualifier("picture")
 public class Picture {
     private int id;
     private int messageId;

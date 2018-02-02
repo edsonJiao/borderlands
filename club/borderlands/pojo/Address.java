@@ -3,11 +3,14 @@ package club.borderlands.pojo;
 //地址类对应数据库的address表
 //与Admin为一对多的关系
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
 /**
  * addressId 学校编号
  * schoolName 学校名称
  * schoolPart  校区
  */
+@Qualifier("address")
 public class Address {
     private int addressId;
     private String schoolName;
