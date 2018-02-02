@@ -18,6 +18,7 @@ show tables;
 create table message(
     id int primary key  auto_increment,
     date date,
+    message_title varchar(100),
     content varchar(200),
     admin_id int,
     foreign key(admin_id) references admin(id)

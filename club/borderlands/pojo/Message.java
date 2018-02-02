@@ -11,6 +11,7 @@ import java.util.List;
  * id   消息id
  * adminId 消息发布者的Id
  * messageDate 消息发布日期
+ * messageTitle 消息标题
  * content 消息文本内容
  * pictureList 消息图片列表
  */
@@ -19,6 +20,7 @@ public class Message {
     private int id;
     private int adminId;
     private Date messageDate;
+    private String messageTitle;
     private String content;
     private List<Picture> pictureList;
 
