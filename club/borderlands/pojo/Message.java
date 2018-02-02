@@ -1,22 +1,33 @@
 package club.borderlands.pojo;
 
 import java.util.Date;
-//信息类
+import java.util.List;
+//信息类对应message表
 //与Admin类为多对一的关系
 
 /**
+ * id   消息id
  * adminId 消息发布者的Id
  * messageDate 消息发布日期
  * content 消息文本内容
- * picture 消息图片
+ * pictureList 消息图片列表
  */
 public class Message {
+    private int id;
     private int adminId;
     private Date messageDate;
     private String content;
-    private byte[] picture;
+    private List<Picture> pictureList;
 
     public Message() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getAdminId() {
@@ -43,11 +54,11 @@ public class Message {
         this.content = content;
     }
 
-    public byte[] getPicture() {
-        return picture;
+    public List<Picture> getPictureList() {
+        return pictureList;
     }
 
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
+    public void setPictureList(List<Picture> pictureList) {
+        this.pictureList = pictureList;
     }
 }

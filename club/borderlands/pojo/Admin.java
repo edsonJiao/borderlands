@@ -1,7 +1,7 @@
 package club.borderlands.pojo;
 
 import java.util.List;
-//用户类
+//用户类对应admin表
 //该类与Address类为多对一的关系
 /**
  * adminId  用户id

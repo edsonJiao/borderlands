@@ -1,5 +1,5 @@
 package club.borderlands.pojo;
-//管理员类
+//管理员类对应root表
 public class Root {
     private String admin;
     private String password;

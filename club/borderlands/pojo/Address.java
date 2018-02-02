@@ -1,6 +1,6 @@
 package club.borderlands.pojo;
 
-//地址类
+//地址类对应数据库的address表
 //与Admin为一对多的关系
 
 /**
