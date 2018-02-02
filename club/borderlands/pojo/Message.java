@@ -15,7 +15,6 @@ import java.util.List;
  * content 消息文本内容
  * pictureList 消息图片列表
  */
-@Qualifier("message")
 public class Message {
     private int id;
     private int adminId;

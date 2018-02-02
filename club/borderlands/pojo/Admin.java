@@ -13,7 +13,6 @@ import java.util.List;
  * addressId 地址id
  * messageList 历史消息列表
  */
-@Qualifier("admin")
 public class Admin {
     private int adminId;
     private String admin;

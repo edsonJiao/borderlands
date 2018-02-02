@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
  * schoolName 学校名称
  * schoolPart  校区
  */
-@Qualifier("address")
 public class Address {
     private int addressId;
     private String schoolName;
