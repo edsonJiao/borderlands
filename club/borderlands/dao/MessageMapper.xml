@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="club.borderlands.dao.MessageMapper">
+    <resultMap id="Message" type="club.borderlands.pojo.Message">
+        <result column="id" property="id"/>
+        <result column="admin_id" property="adminId"/>
+        <result column="date" property="messageDate"/>
+        <result column="message_title" property="messageTitle"/>
+        <result column="content" property="content"/>
+    </resultMap>
+    <insert id="insertMessage">
+        INSERT INTO message(date,content,admin_id,message_title) VALUES (#{messageDate},#{content},#{adminId},#{messageTitle});
+    </insert>
+    <select id="selectByTitle" resultMap="Message">
+        SELECT * FROM message WHERE message_title LIKE '%${messageTitle}%';
+    </select>
+    <select id="findAll" resultMap="Message">
+        SELECT * FROM message WHERE admin_id=#{adminId};
+    </select>
+    <delete id="deleteById">
+        DELETE FROM message WHERE id=#{id};
+    </delete>
+</mapper>

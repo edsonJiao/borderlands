@@ -2,7 +2,8 @@ package club.borderlands.pojo;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import java.util.Date;
+
+import java.sql.Date;
 import java.util.List;
 //信息类对应message表
 //与Admin类为多对一的关系
@@ -64,5 +65,13 @@ public class Message {
 
     public void setPictureList(List<Picture> pictureList) {
         this.pictureList = pictureList;
+    }
+
+    public String getMessageTitle() {
+        return messageTitle;
+    }
+
+    public void setMessageTitle(String messageTitle) {
+        this.messageTitle = messageTitle;
     }
 }
