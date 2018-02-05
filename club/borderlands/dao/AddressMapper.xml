@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="club.borderlands.dao.AddressMapper">
+    <resultMap id="Address" type="club.borderlands.pojo.Address">
+        <result column="id" property="addressId"/>
+        <result column="school_name" property="schoolName"/>
+        <result column="school_part" property="schoolPart"/>
+    </resultMap>
+
+    <select id="selectByName" resultMap="Address">
+        SELECT * FROM address WHERE school_name=#{schoolName};
+    </select>
+
+    <select id="selectById" resultMap="Address">
+        SELECT * FROM address WHERE id=#{id};
+    </select>
+</mapper>
