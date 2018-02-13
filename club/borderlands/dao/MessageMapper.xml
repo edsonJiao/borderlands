@@ -8,6 +8,15 @@
         <result column="message_title" property="messageTitle"/>
         <result column="content" property="content"/>
     </resultMap>
+    <resultMap id="TempMessage" type="club.borderlands.pojo.TempMessage">
+        <result column="id" property="id"/>
+        <result column="tag" property="tag"/>
+        <result column="admin_id" property="adminId"/>
+        <result column="date" property="messageDate"/>
+        <result column="message_title" property="messageTitle"/>
+        <result column="content" property="content"/>
+    </resultMap>
+    <!--对普通消息进行操作-->
     <insert id="insertMessage">
         INSERT INTO message(date,content,admin_id,message_title) VALUES (#{messageDate},#{content},#{adminId},#{messageTitle});
     </insert>
@@ -19,5 +28,18 @@
     </select>
     <delete id="deleteById">
         DELETE FROM message WHERE id=#{id};
+    </delete>
+    <!--对未经审核的消息进行操作-->
+    <insert id="insertTempMessage">
+        INSERT INTO temp_message(date,content,admin_id,message_title) VALUES (#{messageDate},#{content},#{adminId},#{messageTitle});
+    </insert>
+    <select id="findAllTemp" resultMap="TempMessage">
+        SELECT * FROM temp_message WHERE tag=0;
+    </select>
+    <update id="updateTempMessage">
+        UPDATE temp_message SET tag=1 WHERE id=#{id};
+    </update>
+    <delete id="deleteTempMessage">
+        DELETE FROM temp_message WHERE tag=1;
     </delete>
 </mapper>

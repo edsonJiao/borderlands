@@ -35,10 +35,20 @@ create table picture(
     message_id int,
     foreign key(message_id) references message(id)
 );
+create table temp_message(
+    id int primary key  auto_increment,
+    tag int not null DEFAULT 0,
+    date date,
+    message_title varchar(100),
+    content varchar(200),
+    admin_id int,
+    foreign key(admin_id) references admin(id)
+);
 alter database borderlands charset utf8;
 alter table admin CONVERT TO CHARACTER SET utf8;
 alter table address CONVERT TO CHARACTER SET utf8;
 alter table picture CONVERT TO CHARACTER SET utf8;
 alter table root CONVERT TO CHARACTER SET utf8;
 alter table message CONVERT TO CHARACTER SET utf8;
+alter table temp_message CONVERT TO CHARACTER SET utf8;
 insert into address(school_name,school_part) values('青岛大学','崂山校区');
